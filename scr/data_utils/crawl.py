@@ -86,7 +86,9 @@ def track(uid,session):
 
 
     uman_c = aws.aws.clean(u_man)
+    print(f"uman: {uman_c.head(1)}")
     tman_c = aws.aws.clean(t_man)
+    print(f"tman: {tman_c.head(1)}")
 
     print(f"putting u_man {uman_c.shape[0]}, t_man {tman_c.shape[0]} into manifest")
 
