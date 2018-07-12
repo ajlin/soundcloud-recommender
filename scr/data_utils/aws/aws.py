@@ -69,17 +69,33 @@ class put(table):
     def __init__(self,tablename):
         super().__init__(tablename)
 
-    def replace(self,df,session):
+    def replace(self,df,session,limit=200):
         table_obj = tables[self.tablename]
-        row_length = df.shape[0]
-        print(f"insert or updating {row_length} rows into {self.tablename}...")
-        for i in range(row_length):
+        rows = df.shape[0]
+        print(f"insert or updating {rows} rows into {self.tablename}...")
+        last = rows % limit
+        sections = int((rows-last)/limit)
+        pos = 0
+        for i in range(sections):
+            start=pos
+            stop=pos+limit
+            for i in range(start,stop):
+                row = dict(df.iloc[i,:])
+                session.merge(table_obj(**row))
+            print(f"{start}-{stop}")
+            session.commit()
+            time.sleep(1)
+            pos += limit
+        #last step
+        start=pos
+        stop=pos+last
+        for i in range(pos,last):
             row = dict(df.iloc[i,:])
             session.merge(table_obj(**row))
+        print(f"{pos}-{stop}")
         session.commit()
-        print("...success!")
+        print("success")
         pass
-
 
 """df transformation helpers"""
 def clean(df):

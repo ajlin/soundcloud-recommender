@@ -50,7 +50,6 @@ class api(object):
                     break
                 else:
                     res = requests.get(url=url,params=self.params)
-
                     try:
                         res.raise_for_status() #check status
                     except requests.HTTPError: #wait a smidge longer for status
