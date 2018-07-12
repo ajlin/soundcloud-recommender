@@ -79,22 +79,24 @@ class put(table):
         for i in range(sections):
             start=pos
             stop=pos+limit
+            print(f"{start}-{stop}...")
             for i in range(start,stop):
                 row = dict(df.iloc[i,:])
                 session.merge(table_obj(**row))
-            print(f"{start}-{stop}")
             session.commit()
+            print("...submitted.")
             time.sleep(1)
             pos += limit
         #last step
         start=pos
         stop=pos+last
+        print(f"{start}-{stop}...")
         for i in range(pos,last):
             row = dict(df.iloc[i,:])
             session.merge(table_obj(**row))
-        print(f"{pos}-{stop}")
         session.commit()
-        print("success")
+        print("...submitted.")
+        print(f"submissions done. submitted: {stop} ")
         pass
 
 """df transformation helpers"""

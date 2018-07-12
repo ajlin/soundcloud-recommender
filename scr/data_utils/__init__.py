@@ -1,2 +1,1 @@
-__name__ = 'utils'
-__all__ = ['aws','soundcloud','crawl']
+import aws,sc
