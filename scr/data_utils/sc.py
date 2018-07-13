@@ -39,12 +39,15 @@ class api(object):
         self.url = url
         return self
 
-    def get(self,paginate=False):
+    def get(self,paginate=False,steps=55):
+        """ paginate through API requests... note: default max steps is set to 55, or about 11k users/tracks.
+        any more is beyond my abilities or capacity to optimize right now (only gathering full data on about 300/day or so)
+        and so i've decided, out of my scope to handle for now."""
         if paginate is True:
             url = self.url
             post_ = []
             count_ = 0
-            for _ in range(100): #page limit not really a factor for our scraper so far
+            for _ in range(steps): #page limit not really a factor for our scraper so far
                 if url == None:
                     print('done. output length: ',len(post_))
                     break
