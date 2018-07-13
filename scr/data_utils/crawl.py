@@ -1,7 +1,9 @@
 import aws
 import sc
 import pandas as pd
+
 aws.make_session()
+
 def __main__():
     """ STEPPING """
     session = aws.make_session()
