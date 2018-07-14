@@ -8,3 +8,6 @@ sqlalchemy
 psycopg6
 pandas
 numpy
+
+
+#docker exec -it this_postgres psql -U postgres
