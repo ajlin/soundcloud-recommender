@@ -1,8 +1,7 @@
-import aws
-import sc
+from data_utils import sc,aws
 import pandas as pd
 
-aws.make_session()
+#aws.make_session()
 
 def __main__():
     """ STEPPING """
