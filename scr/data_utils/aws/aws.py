@@ -1,4 +1,4 @@
-from aws.schema import Track,User,Manifest,Fav,Com,Base,make_session
+from data_utils.aws.schema import Track,User,Manifest,Fav,Com,Base,make_session
 import pandas as pd
 import time
 

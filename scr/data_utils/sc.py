@@ -1,10 +1,10 @@
-import settings
+import data_utils.settings
 import requests
 import pandas as pd
 import time
 
-from settings import client_id
-from settings import pagination_limit as limit
+from data_utils.settings import client_id
+from data_utils.settings import pagination_limit as limit
 
 
 #########################
