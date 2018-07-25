@@ -1,5 +1,5 @@
 from data_utils.aws.schema import Track,User,Manifest,Fav,Com,Base,make_session
-import pandas as pd
+import pandas as pd, numpy as np
 import time
 
 tables = dict(
