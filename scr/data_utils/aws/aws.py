@@ -102,7 +102,7 @@ class put(table):
 """df transformation helpers"""
 def clean(df):
     t = df.drop_duplicates()
-    t = df.replace('',"empty") #replace empty strings with 'empty'
+    t = df.replace("[^A-Za-z0-9.:/ +\n]+",'',regex=True)
     t = df.dropna(how='all')
     t = t.reindex()
     return t
