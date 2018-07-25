@@ -102,12 +102,12 @@ class put(table):
 """df transformation helpers"""
 def clean(df):
     t = df.drop_duplicates()
+    t = df.replace('',"empty") #replace empty strings with 'empty'
     t = df.dropna(how='all')
     t = t.reindex()
     return t
 
 def columns_from(df,colnames):
-    df = df.replace('','empty field') #change empty strings to 'empty'
     df = df.where(pd.notnull(df),None).reindex() #change NaNs to Nones
     return df[colnames]
 
