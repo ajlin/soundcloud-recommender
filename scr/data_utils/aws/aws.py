@@ -107,7 +107,7 @@ def clean(df):
     return t
 
 def columns_from(df,colnames):
-    df = df.replace('',np.nan) #change empty strings to NaNs
+    df = df.replace('','empty field') #change empty strings to 'empty'
     df = df.where(pd.notnull(df),None).reindex() #change NaNs to Nones
     return df[colnames]
 
