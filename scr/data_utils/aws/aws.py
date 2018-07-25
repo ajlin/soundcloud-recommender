@@ -120,7 +120,7 @@ def rename_columns(df,left_ids,right_ids):
     return df.rename(columns=dict_renames)
 
 def concat_tall(dflist):
-    return pd.concat(dflist,axis=0).reindex()
+    return pd.concat(dflist,axis=0,sort=False).reindex()
 
 def make_row(**kwargs):
     return pd.DataFrame([kwargs])
