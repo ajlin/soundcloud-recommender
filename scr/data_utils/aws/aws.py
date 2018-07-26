@@ -104,6 +104,7 @@ def clean(df):
     t = df.drop_duplicates()
     t = t.replace("[\x00]+"," ",regex=True)
     t = t.dropna(how='all')
+    t = t.where(pd.notnull(t),None)
     t = t.reindex()
     return t
 
